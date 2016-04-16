@@ -16,12 +16,9 @@ Im folgenden werden verschiedene Aufteilungen der Menüpunkte innerhalb eines Me
 
 In den Tabellen bezeichnet ein x einen Menü-Eintrag, welcher vom Benutzer geklickt werden kann sowie ein o ein Element in einem Menü, welches eine Eintrags-Gruppe beschreibt. Ein o gruppiert alle links unter ihm und unter ihm stehenden Menüeinträge bis zum nächsten o.
 
+Weiterhin betrachten wir hier lediglich 2-fach verschachtelte Menüs, da bei der geringen Anzahl an Menü-Elementen keine Effizienzsteigerung zu erwarten ist.
 
-@TODO: Prüfen, ob alles richtig ist und nichts vergessen wurde \\
-@TODO: was wurde warum weggelassen \\
-@TODO: schreiben, dass Berechnungen jeweils worst case sind \\
-@TODO: müsste es nicht in den Ergebnissen jeweils $2\cdot b$ sein? In den Folien ist es nur b \\
-@TODO: Fazit (Für naive und erfahrene Nutzer sind H und J am besten)\\
+Die Berechnungen sind jeweils der worst-case, d.h. es wird angenommen, dass der Benutzer stets einen Eintrag in der Verschachtelung mit den wiederum meisten Einträgen sucht.
 
 A)\\
 \begin{tabular}{|c|c|c|c|c|c|l|l}
@@ -68,14 +65,14 @@ F)\\
 G)\\
 \begin{tabular}{|c|c|c|c|c|c|l|l}
 \cline{1-6} x &   & o &   &   & o & $1\cdot 3$ und $1\cdot 3$ & Naiv: $T = b\cdot 3+b\cdot 3 = b\cdot 6$ \\
-\cline{1-6}   & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(3+1)+b\cdot \log(3+1) = b\cdot 3.17$ \\
+\cline{1-6}   & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(3+1)+b\cdot \log(3+1) = b\cdot 4$ \\
 \cline{1-6}
 \end{tabular} \\
 
 H)\\
 \begin{tabular}{|c|c|c|c|c|c|l|l}
 \cline{1-6}   &   & o &   &   & o & $1\cdot 2$ und $1\cdot 3$ & Naiv: $T = b\cdot 2+b\cdot 3 = b\cdot 5$ \\
-\cline{1-6} x & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(2+1)+b\cdot \log(3+1) = b\cdot 2.58$ \\
+\cline{1-6} x & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(2+1)+b\cdot \log(3+1) = b\cdot 3.58$ \\
 \cline{1-6}
 \end{tabular} \\
 
@@ -89,8 +86,12 @@ I)\\
 J)\\
 \begin{tabular}{|c|c|c|c|c|c|l|l}
 \cline{1-6}   & o &   & o &   & o & $1\cdot 3$ und $1\cdot 2$ & Naiv: $T = b\cdot 3+b\cdot 2 = b\cdot 5$ \\
-\cline{1-6} x & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(3+1)+b\cdot \log(2+1) = b\cdot 2.58$ \\
+\cline{1-6} x & x & x & x & x & x &   & Erfahren: $T = b\cdot \log(3+1)+b\cdot \log(2+1) = b\cdot 3.58$ \\
 \cline{1-6}
 \end{tabular} \\
+
+Für den erfahrenen Benutzer ist es am effizientesten, wenn alle Elemente in der obersten Ebene angeordnet sind, da er dann die wenigsten Aktionen durchführen muss, um das Element (welches er ja bereits kennt) aufzusuchen und zu nutzen.
+
+Für den unerfahrenen Benutzer jedoch ist es effizienter, sind die Menüpunkte in gleichmäßig großen Gruppen angeordnet. Da wir davon ausgehen, dass der Nutzer hier anhand einer semantisch sinnvollen Gruppenbezeichnung die korrekte Gruppe auswählt, ist die Anzahl der jeweils zu betrachtenden Elemente pro Ebene minimal.
 
 \end{document}
