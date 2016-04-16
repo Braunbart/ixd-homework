@@ -14,11 +14,11 @@
 \aufgabe{3}
 Im folgenden werden verschiedene Aufteilungen der Menüpunkte innerhalb eines Menüs in Hinsicht auf ihre Benutzerfreundlichkeit nach Hick betrachtet.
 
-In den Tabellen bezeichnet ein x einen Menü-Eintrag, welcher vom Benutzer geklickt werden kann sowie ein o ein Element in einem Menü, welches eine Eintrags-Gruppe beschreibt. Ein o gruppiert alle links unter ihm und unter ihm stehenden Menüeinträge bis zum nächsten o.
+In den Tabellen bezeichnet ein x einen Menü-Eintrag, welcher vom Benutzer geklickt werden kann sowie ein o ein Element in einem Menü, welches eine Eintrags-Gruppe beschreibt. Ein o gruppiert alle unter ihm stehenden Menüeinträge bis zum nächsten o.
 
 Weiterhin betrachten wir hier lediglich 2-fach verschachtelte Menüs, da bei der geringen Anzahl an Menü-Elementen keine Effizienzsteigerung zu erwarten ist.
 
-Die Berechnungen sind jeweils der worst-case, d.h. es wird angenommen, dass der Benutzer stets einen Eintrag in der Verschachtelung mit den wiederum meisten Einträgen sucht.
+Die Berechnungen sind jeweils der worst-case, d.h. es wird angenommen, dass der Benutzer stets einen Eintrag in der Verschachtelung mit den meisten Einträgen sucht.
 
 A)\\
 \begin{tabular}{|c|c|c|c|c|c|l|l}
@@ -90,8 +90,8 @@ J)\\
 \cline{1-6}
 \end{tabular} \\
 
-Für den erfahrenen Benutzer ist es am effizientesten, wenn alle Elemente in der obersten Ebene angeordnet sind, da er dann die wenigsten Aktionen durchführen muss, um das Element (welches er ja bereits kennt) aufzusuchen und zu nutzen.
+Für den erfahrenen Benutzer ist es am effizientesten, wenn alle Elemente in der obersten Ebene angeordnet sind (A), da er dann die wenigsten Aktionen durchführen muss, um das Element (welches er ja bereits kennt) aufzusuchen und zu nutzen.
 
-Für den unerfahrenen Benutzer jedoch ist es effizienter, sind die Menüpunkte in gleichmäßig großen Gruppen angeordnet. Da wir davon ausgehen, dass der Nutzer hier anhand einer semantisch sinnvollen Gruppenbezeichnung die korrekte Gruppe auswählt, ist die Anzahl der jeweils zu betrachtenden Elemente pro Ebene minimal.
+Für den unerfahrenen Benutzer jedoch ist es effizienter, sind die Menüpunkte in gleichmäßig großen Gruppen angeordnet (H oder J). Da wir davon ausgehen, dass der Nutzer hier anhand einer semantisch sinnvollen Gruppenbezeichnung die korrekte Gruppe auswählt, ist die Anzahl der jeweils zu betrachtenden Elemente pro Ebene minimal.
 
 \end{document}
