@@ -13,5 +13,82 @@
 
 \aufgabe{3}
 
+@TODO: Prüfen, ob alles richtig ist und nichts vergessen wurde \\
+@TODO: Einleitender Satz \\
+@TODO: was wurde warum weggelassen \\
+@TODO: was bedeutet x und o \\
+@TODO: schreiben, dass Berechnungen jeweils worst case sind \\
+@TODO: müsste es nicht in den Ergebnissen jeweils 2*b sein? In den Folien ist es nur b \\
+@TODO: Fazit (Für naive und erfahrene Nutzer sind H und J am besten)\\
+
+A)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x & x & x & x & x & x & 1*6 \: \: \: \: \: \: \: & Naiv: T = b*6 \\
+\cline{1-6}   &   &   &   &   &   &   & Erfahren: T = b*log(6+1) = b*2.81\\
+\cline{1-6}
+\end{tabular} \\
+
+B)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x & x & x & x &   & o & 1*5 und 1*2 & Naiv: T = b*5+b*2 = b*7 \\
+\cline{1-6}   &   &   &   & x & x &   & Erfahren: T = b*log(5+1)+b*log(2+1) = b*4.17 \\
+\cline{1-6}
+\end{tabular} \\
+
+C)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x & x & x &   &   & o & 1*4 und 1*3 & Naiv: T = b*4+b*3 = b*7 \\
+\cline{1-6}   &   &   & x & x & x &   & Erfahren: T = b*log(4+1)+b*log(3+1) = b*4.32 \\
+\cline{1-6}
+\end{tabular} \\
+
+D)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x & x &   &   &   & o & 1*3 und 1*4 & Naiv: T = b*3+b*4 = b*7 \\
+\cline{1-6}   &   & x & x & x & x &   & Erfahren: T = b*log(3+1)+b*log(4+1) = b*4.32 \\
+\cline{1-6}
+\end{tabular} \\
+
+E)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x &   &   &   &   & o & 1*2 und 1*5 & Naiv: T = b*2+b*5 = b*7 \\
+\cline{1-6}   & x & x & x & x & x &   & Erfahren: T = b*log(2+1)+b*log(5+1) = b*4.17 \\
+\cline{1-6}
+\end{tabular} \\
+
+F)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x & x &   & o &   & o & 1*4 und 1*2 & Naiv: T = b*4+b*2 = b*6 \\
+\cline{1-6}   &   & x & x & x & x &   & Erfahren: T = b*log(4+1)+b*log(2+1) = b*3.91 \\
+\cline{1-6}
+\end{tabular} \\
+
+G)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6} x &   & o &   &   & o & 1*3 und 1*3 & Naiv: T = b*3+b*3 = b*6 \\
+\cline{1-6}   & x & x & x & x & x &   & Erfahren: T = b*log(3+1)+b*log(3+1) = b*3.17 \\
+\cline{1-6}
+\end{tabular} \\
+
+H)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6}   &   & o &   &   & o & 1*2 und 1*3 & Naiv: T = b*2+b*3 = b*5 \\
+\cline{1-6} x & x & x & x & x & x &   & Erfahren: T = b*log(2+1)+b*log(3+1) = b*2.58 \\
+\cline{1-6}
+\end{tabular} \\
+
+I)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6}   & o &   &   &   & o & 1*2 und 1*4 & Naiv: T = b*2+b*4 = b*6 \\
+\cline{1-6} x & x & x & x & x & x &   & Erfahren: T = b*log(2+1)+b*log(4+1) = b*3.91 \\
+\cline{1-6}
+\end{tabular} \\
+
+J)\\
+\begin{tabular}{|c|c|c|c|c|c|l|l}
+\cline{1-6}   & o &   & o &   & o & 1*3 und 1*2 & Naiv: T = b*3+b*2 = b*5 \\
+\cline{1-6} x & x & x & x & x & x &   & Erfahren: T = b*log(3+1)+b*log(2+1) = b*2.58 \\
+\cline{1-6}
+\end{tabular} \\
 
 \end{document}
