@@ -6,11 +6,131 @@
 
 \usepackage{hci}
 
+\usepackage{fancyvrb}
+\usepackage{icomma}
+
+\newcommand{\dunderline}[1]{\underline{\underline{#1}}}
+
 \begin{document}
 % Seitenkopf mit Informationen
 \kopf
 \renewcommand{\figurename}{Figure}
 
 \aufgabe{4}
+
+Beide Varianten finden unter Windows 7 statt.
+
+\begin{itemize}
+\item Zunächst betrachten wir den Best-Case. Der Browser Firefox befindet sich im Start-Menü unter den Oft verwendeten Programmen ganz oben. Er startet binnen 2 Sekunden. Die Startseite ist bereits Google, standartmäßig ist das Eingabefeld von Google schon ausgewählt, der Nutzer kann also sofort los tippen. Außerdem goooglet er oft nach Interaktionsdesign, so dass der Suchbegriff bereits nach Eingabe des Buchstaben i erscheint, daraufhin drückt der Nutzer nur noch auf die Pfeil-Unten-Taste und Enter, um die Suche zu starten. Die Hände befinden sich bei Beginn bereits auf der Tastatur, der Benutzer ist außerdem sehr erfahren im Umgang mit Computern.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\textbf{GOAL: GOOGLE-FOR-IXD}
+    PRESS-WINDOWS-KEY
+    PRESS-DOWN-KEY
+    PRESS-ENTER
+    WAIT-FOR-FIREFOX
+    TYPE-LETTER-I
+    PRESS-DOWN-KEY
+    PRESS-ENTER
+\end{Verbatim}
+
+Zeitliche Analyse:
+\begin{center}
+    \begin{tabular}{|l|c|}
+    \hline
+    Aktion & Zeit \\
+    \hline
+    K & $0,28s$ \\
+    K & $0,28s$ \\
+    K & $0,28s$ \\
+    $W(2s)$ & $2s$ \\
+    K & $0,28s$ \\
+    K & $0,28s$ \\
+    K & $0,28s$ \\
+    \hline
+    \hline
+    \textbf{Gesamt} & $3,68s$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\item Der Benutzer ist unerfahren im Umgang mit Computern und kennt keine Shortcuts und weiß mit der Autovervollständigung von Google nichts anzufangen.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\textbf{GOAL: GOOGLE-FOR-IXD}
+    LOCATE-START-BUTTON
+    MOVE-MOUSE-TO-START-BUTTON
+    CLICK-START-BUTTON
+    LOCATE-ENTRY "Alle Programme"
+    MOVE-TO-ENTRY "Alle Programme"
+    CLICK-LEFT
+    LOCATE-ENTRY "Mozilla"
+    MOVE-TO-ENTRY "Mozilla"
+    CLICK-LEFT
+    LOCATE-ENTRY "Firefox"
+    MOVE-TO-ENTRY "Firefox"
+    CLICK-LEFT
+    WAIT-FOR-FIREFOX
+    LOCATE-ADDRESS-BAR
+    MOVE-TO-ADDRESS-BAR
+    CLICK-LEFT % Der Ganze Text soll bereits markiert sein
+    TYPE-IN "www.google.de"
+    PRESS-ENTER
+    WAIT-FOR-PAGE % 0.5s
+    LOCATE-SEARCH-FIELD
+    MOVE-TO-SEARCH-FIELD
+    CLICK-LEFT
+    TYPE-IN "Interaktionsdesign"
+    LOCATE-SEARCH-BUTTON
+    MOVE-TO-SEARCH-BUTTON
+    CLICK-LEFT % Geschafft!
+\end{Verbatim}
+
+Zeitliche Analyse:
+\begin{center}
+    \begin{tabular}{|l|c|}
+    \hline
+    Aktion & Zeit \\
+    \hline
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    $W(2s)$ & $2,0s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    H       & $0,4s$ \\
+    $T(13)$ & $13 \cdot 0,28s = 3,64s$ \\
+    K       & $0,28s$ \\
+    $W(0,5s)$ & $0,5s$ \\
+    H       & $0,4s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    H       & $0,4s$ \\
+    $T(19)$ & $19 \cdot 0,28s = 5,32s $ \\
+    H       & $0,4s$ \\
+    M       & $1,2s$ \\
+    P       & $1,1s$ \\
+    BB      & $0,2s$ \\
+    \hline
+    \hline
+    \textbf{Gesamt} & $30,84s$ \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Der erfahrene Nutzer benötigt also nur $\left( \frac{3,64s}{30,84s} \right) \cdot 100 \approx \dunderline{12 \%}$ der Zeit, die der unerfahrene Benutzer benötigt\footnote{\glqq So much pain.\grqq}, ist also ca. zehnfach schneller.
+
+\end{itemize}
 
 \end{document}
