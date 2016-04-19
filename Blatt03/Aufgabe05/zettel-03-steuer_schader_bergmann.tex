@@ -5,6 +5,8 @@
 \newcommand{\autor}{Merlin Steuer, Till Schander, Lennart Bergmann}
 
 \usepackage{hci}
+\usepackage{amsmath}
+\usepackage{icomma}
 
 \begin{document}
 % Seitenkopf mit Informationen
@@ -13,4 +15,61 @@
 
 \aufgabe{5}
 
+\begin{enumerate}
+\item Der \textit{Index of difficulty} $ID(n)$ für die Option $n$ im Menü ergibt sich durch:
+
+\begin{equation} \label{eq:id}
+ID(n) = \log_{2} \left( \frac{D(n)}{S(n)} + 1 \right)
+\end{equation}
+mit $D(n)$ der Distanz zum Ziel vom Startpunkt der Mouse aus, hier die Mitte der jeweiligen Menüoptionen sowie $S(n)$ der Breite der Menüoption entlang des Pfades, welchen die Mouse zum Ziel nimmt.
+
+\subsection*{Rechteckiges Menü}
+
+Wir betrachten zunächst das übliche Menü mit den rechteckigen Menüoptionen. Dabei sei $h$ die Höhe und $w$ die Breite einer Menüoption, jeweils angegeben in Pixeln.
+
+Es ergibt sich daher für $D(n)$ mithilfe des Satzes des Pythagoras für das rechtwinklige Dreieck:
+\begin{equation}
+D(n) = \sqrt{ \left(\left(\left(n - 1\right) * h\right) + \frac{h}{2}\right)^{2} + \left( \frac{w}{2}\right)^{2}}
+\end{equation}
+
+Anhand des rechtwinkligen Dreiecks können wir auch den Winkel vom Startpunkt der Mouse bis zum Ziel bestimmen. Diesen benötigen wir für die Berechnung der Breite des Ziels, da diese Abhängig vom Winkel ist, welchen der Pfad durch die Menüoption hat. Er ist beschrieben durch:
+
+\begin{equation}
+\alpha(n) = \tan^{-1}\left( \frac{\frac{w}{2}}{(n - 1) * h + \frac{h}{2}} \right)
+\end{equation}
+
+Dann gilt für $S(n)$:
+\begin{equation}
+S(n) = \frac{h}{\cos\left(\alpha(n)\right)}
+\end{equation}
+
+Mit $w = 60px$ und $h = 20px$ ergeben sich dann folgende Werte für das normale Menü:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$n$ & $D(n)$ & $S(n)$ & $ ID(n)$ \\
+\hline
+1 & $31,62px$ & $63,25px$ & $0,18$ \\
+2 & $42,43px$ & $28,28px$ & $0,40$ \\
+3 & $58,31px$ & $23,32px$ & $0,54$ \\
+4 & $76,16px$ & $21,76px$ & $0,65$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection*{Pie-Menü}
+
+Das angegebene Pie-Menü ist ein Kreis mit Radius $r = 40px$, dieser bezeichnet ebenfalls die Zielbreite entlang des Mouse-Pfades, welcher im Mittelpunkt des Kreises beginnt, daher: $S = r = 40px$. Das Ziel befinde sich jeweils auf der Hälfte des Radius entlang der Winkelhalbierenden, also bei $D = \frac{r}{2} = 20px$.
+
+Es ergibt sich dann anhand von \eqref{eq:id}:
+
+\begin{equation}
+ID = \log_{2} \left( \frac{D}{S} + 1 \right) = 0,5
+\end{equation}
+
+Für alle Menüeinträge des Pie-Menüs.
+
+\item
+\end{enumerate}
 \end{document}
