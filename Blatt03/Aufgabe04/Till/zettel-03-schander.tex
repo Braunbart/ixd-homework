@@ -1,0 +1,58 @@
+\documentclass[a4paper,10pt]{article}
+
+% Hier die Nummer des Blatts und Autoren angeben.
+\newcommand{\blatt}{3}
+\newcommand{\autor}{Till Schander (6682565)}
+
+\usepackage{hci}
+
+\begin{document}
+% Seitenkopf mit Informationen
+\kopf
+\renewcommand{\figurename}{Abbildung}
+
+\aufgabe{5}
+Für Shortcuts, bei denen mehrere Tasten gleichzeitig gehalten werden müssen, nehme ich n-mal die Operation K (Tastendruck) an. Der Nutzer hat zu Beginn aller Szenarien seine Hände auf der Tastatur. Das verwendete Betriebssystem ist Ubuntu 14.04.
+
+\subsection*{Best-Case-Szenario}
+Firefox wird per Shortcut geöffnet (SUPER + 1). In Firefox wird dann per Shortcut die Suchleiste fokussiert (CTRL + K). Der Suchbegriff muss nicht vollständig eingegeben werden, da ein Teil per Autovervollständigung hinzugefügt wird. \\
+
+\begin{tabular}{l|l|l}
+Schritt & Buchstabe & Zeit (sec) \\ \hline 
+\textbf{GOAL: SEARCH-FOR-IXD} & & \\
+\verb|    PRESS-SUPER-1| & 2*K & 0.56 \\ 
+\verb|    PRESS-CTRL-K| & 2*K & 0.56 \\ 
+\verb|    TYPE-INTERAKTIONSD| & T(13) & 3.64 \\
+\verb|    PRESS-ENTER| & K & 0.28 \\ 
+\hline & & 5.04
+\end{tabular}
+
+
+\subsection*{Worst-Case-Szenario}
+Firefox wird gestartet, indem das Startmenü mit der Maus geöffnet und dort nach dem Programmname gesucht wird. Dann wird mit der Maus die Suchleiste fokussiert und der Suchbegriff vollständig eingegeben. Abgeschickt wird der Suchbegriff wieder durch einen Mausklick. \\
+
+\begin{tabular}{l|l|l}
+Schritt & Buchstabe & Zeit (sec) \\ \hline 
+\textbf{GOAL: SEARCH-FOR-IXD} & & \\
+\verb|    MOVE-HAND-TO-MOUSE| & H & 0.4 \\ 
+\verb|    MOVE-CURSOR-OVER-STARTMENU| & P & 1.1 \\ 
+\verb|    PRESS-AND-RELEASE-LEFT-MOUSE-BUTTON| & BB & 0.2 \\
+\verb|    MOVE-HAND-TO-KEYBOARD| & H & 0.4 \\ 
+\verb|    TYPE-FIREFOX| & T(7) & 1.96 \\
+\verb|    MOVE-HAND-TO-MOUSE| & H & 0.4 \\ 
+\verb|    MOVE-CURSOR-OVER-FIREFOX| & P & 1.1 \\ 
+\verb|    PRESS-AND-RELEASE-LEFT-MOUSE-BUTTON| & BB & 0.2 \\
+\verb|    MOVE-CURSOR-OVER-SEARCH-BAR| & P & 1.1 \\ 
+\verb|    PRESS-AND-RELEASE-LEFT-MOUSE-BUTTON| & BB & 0.2 \\
+\verb|    MOVE-HAND-TO-KEYBOARD| & H & 0.4 \\ 
+\verb|    TYPE-INTERAKTIONSDESIGN| & T(18) & 5.04 \\ 
+\verb|    MOVE-HAND-TO-MOUSE| & H & 0.4 \\ 
+\verb|    MOVE-CURSOR-OVER-GO| & P & 1.1 \\ 
+\verb|    PRESS-AND-RELEASE-LEFT-MOUSE-BUTTON| & BB & 0.2 \\
+\hline & & 14.2
+\end{tabular} 
+\\ \\
+
+Das Best-Case-Szenario ist 281.7\% schneller, also fast drei mal so schnell, wie das Worst-Case-Szenario.
+
+\end{document}
