@@ -22,11 +22,17 @@ class Aufgabe7GUI extends JFrame {
     private JMenu fensterMenu = new JMenu("Fenster");
     private JMenu hilfeMenu = new JMenu("Hilfe");
     
-    private JMenuItem menuItem1 = new JMenuItem("foo");
-    private JMenuItem menuItem2 = new JMenuItem("foo");
-    private JMenuItem menuItem3 = new JMenuItem("foo");
-    private JMenuItem menuItem4 = new JMenuItem("foo");
+    private JMenuItem menuItem1 = new JMenuItem("Beenden");
     
+    private JMenuItem menuItem2 = new JMenuItem("Verbindung herstellen");
+    private JMenuItem menuItem3 = new JMenuItem("Verbindung trennen");
+    private JMenuItem menuItem4 = new JMenuItem("Benutzer Verwalten");
+    private JMenuItem menuItem5 = new JMenuItem("Bücher Verwalten");
+    
+    private JMenuItem menuItem6 = new JMenuItem("Übersicht anzeigen");
+
+    private JMenuItem menuItem7 = new JMenuItem("Info");
+
     private JButton benutzenButton = new JButton("Neuen Benutzer hinzufügen");
     private JButton buecherButton = new JButton("Neue Bücher aufnehmen");
     private JButton verleihenButton = new JButton("Buch verleihen");
@@ -47,27 +53,19 @@ class Aufgabe7GUI extends JFrame {
         menuBar.add(hilfeMenu);
         
         dateiMenu.add(menuItem1);
-        datenbankMenu.add(menuItem2);
-        fensterMenu.add(menuItem3);
-        hilfeMenu.add(menuItem4);
         
+        datenbankMenu.add(menuItem2);
+        datenbankMenu.add(menuItem3);
+        datenbankMenu.add(menuItem4);
+        datenbankMenu.add(menuItem5);        
+
+        fensterMenu.add(menuItem6);
+        hilfeMenu.add(menuItem7);
+
         benutzenButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {                
-                JPanel myPanel = new JPanel(new GridLayout(0, 2, 10, 10));
-                
-                myPanel.add(new JLabel("Name:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JLabel("ID:"));
-                myPanel.add(new JFormattedTextField(NumberFormat.getNumberInstance()));
-                myPanel.add(new JLabel("Adresse:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JLabel("Geburtsdatum:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JLabel("Aufnahmedatum:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JCheckBox("Männlich"));
-                myPanel.add(new JCheckBox("Weiblich"));
-                
+                JPanel myPanel = new AddUserPane();
+                                
                 int result = JOptionPane.showOptionDialog(
                     null,
                     myPanel, 
@@ -83,19 +81,8 @@ class Aufgabe7GUI extends JFrame {
         
         buecherButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String[] schlagworte = {"Sonne", "Mond", "Stern", "Raumschiff", "Alien"};
-                JPanel myPanel = new JPanel(new GridLayout(0, 2, 10, 10));
                 
-                myPanel.add(new JLabel("Titel:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JLabel("ISBN:"));
-                myPanel.add(new JTextField());
-                myPanel.add(new JCheckBox("Verliehen"));
-                myPanel.add(new JCheckBox("Verfügbar"));
-                myPanel.add(new JLabel("Entleiher ID:"));
-                myPanel.add(new JFormattedTextField(NumberFormat.getNumberInstance()));
-                myPanel.add(new JLabel("Schlagworte:"));
-                myPanel.add(new JComboBox<>(schlagworte));
+                JPanel myPanel = new AddBookPane();
                 
                 int result = JOptionPane.showOptionDialog(
                     null,
@@ -112,7 +99,7 @@ class Aufgabe7GUI extends JFrame {
         
         verleihenButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JPanel myPanel = new JPanel(new GridLayout(0, 2, 10, 10));
+                JPanel myPanel = new VerleihBuchPane();
                 
                 int result = JOptionPane.showOptionDialog(
                     null,
@@ -129,7 +116,7 @@ class Aufgabe7GUI extends JFrame {
         
         zuruecknehmenButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JPanel myPanel = new JPanel(new GridLayout(0, 2, 10, 10));
+                JPanel myPanel = new ZurueckPane();
                 
                 int result = JOptionPane.showOptionDialog(
                     null,
@@ -148,4 +135,68 @@ class Aufgabe7GUI extends JFrame {
         this.setContentPane(content);
         this.pack();
     }
+}
+
+class AddUserPane extends JPanel {
+	public AddUserPane() {
+		
+		this.setLayout(new GridLayout(0,2));
+		this.add(new JLabel("Name:"));
+                this.add(new JTextField());
+                this.add(new JLabel("ID:"));
+                this.add(new JFormattedTextField(NumberFormat.getNumberInstance()));
+                this.add(new JLabel("Adresse:"));
+                this.add(new JTextField());
+                this.add(new JLabel("Geburtsdatum:"));
+                this.add(new JTextField());
+                this.add(new JLabel("Aufnahmedatum:"));
+                this.add(new JTextField());
+                this.add(new JCheckBox("Männlich"));
+                this.add(new JCheckBox("Weiblich"));	
+	}
+}
+
+class AddBookPane extends JPanel {
+	public AddBookPane() {
+		String[] schlagworte = {"Sonne", "Mond", "Stern", "Raumschiff", "Alien"};		
+
+		this.setLayout(new GridLayout(0,2));
+
+		this.add(new JLabel("Titel:"));
+                this.add(new JTextField());
+                this.add(new JLabel("ISBN:"));
+                this.add(new JTextField());
+                this.add(new JCheckBox("Verliehen"));
+                this.add(new JCheckBox("Verfügbar"));
+                this.add(new JLabel("Entleiher ID:"));
+                this.add(new JFormattedTextField(NumberFormat.getNumberInstance()));
+                this.add(new JLabel("Schlagworte:"));
+                this.add(new JComboBox<>(schlagworte));
+	}
+}
+
+class VerleihBuchPane extends JPanel {
+	public VerleihBuchPane() {
+		this.setLayout(new GridLayout(0,2));
+
+		this.add(new JLabel("Buch ID:"));
+		this.add(new JTextField());	
+
+		this.add(new JLabel("Entleiher ID:"));
+		this.add(new JTextField());	
+
+		this.add(new JLabel("Frist:"));
+		this.add(new JTextField());	
+	}
+}
+
+class ZurueckPane extends JPanel {
+	public ZurueckPane() {
+		this.setLayout(new GridLayout(0,2));
+
+		this.add(new JLabel("Buch ID:"));
+		this.add(new JTextField());	
+
+		
+	}
 }
