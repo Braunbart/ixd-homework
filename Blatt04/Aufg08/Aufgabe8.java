@@ -8,9 +8,12 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.math.*;
 import java.text.*;
 
+/**
+ * Implements an interface for the Bibliothekssoftware
+ *
+ */
 public class Aufgabe8 {
     public static void main(String[] args) {
         JFrame window = new Aufgabe8GUI();
@@ -21,6 +24,10 @@ public class Aufgabe8 {
     }
 }
 
+/**
+ * Creates the interface, with options to add new users and books, as well as borrow and return books.
+ *
+ */
 class Aufgabe8GUI extends JFrame {    
     private JMenuBar menuBar = new JMenuBar();
     
@@ -44,7 +51,10 @@ class Aufgabe8GUI extends JFrame {
     private JButton buecherButton = new JButton("Bücher aufnehmen");
     private JButton verleihenButton = new JButton("Buch verleihen");
     private JButton zuruecknehmenButton = new JButton("Buch zurücknehmen");
-        
+      
+    /**
+     * Adds buttons, menu bars, keyboard shortcuts, and button funtionality.
+     */
     Aufgabe8GUI() {
         JPanel content = new JPanel();
         content.setLayout(new GridLayout(0,1,10,10));
@@ -78,6 +88,9 @@ class Aufgabe8GUI extends JFrame {
         hilfeMenu.setMnemonic(KeyEvent.VK_H);
 
         benutzenButton.addActionListener(new ActionListener() {
+        	/**
+        	 * Creates a dialog to add a new user.
+        	 */
             public void actionPerformed(ActionEvent e) {                
                 JPanel myPanel = new AddUserPane();
                                 
@@ -95,6 +108,9 @@ class Aufgabe8GUI extends JFrame {
         });
         
         buecherButton.addActionListener(new ActionListener() {
+        	/**
+        	 * Creates a dialog to add a new book.
+        	 */
             public void actionPerformed(ActionEvent e) {
                 
                 JPanel myPanel = new AddBookPane();
@@ -113,6 +129,9 @@ class Aufgabe8GUI extends JFrame {
         });
         
         verleihenButton.addActionListener(new ActionListener() {
+        	/**
+        	 * Creates a dialog to lend/borrow a book.
+        	 */
             public void actionPerformed(ActionEvent e) {
                 JPanel myPanel = new VerleihBuchPane();
                 
@@ -130,6 +149,9 @@ class Aufgabe8GUI extends JFrame {
         });
         
         zuruecknehmenButton.addActionListener(new ActionListener() {
+        	/**
+        	 * Creates a dialog to return a book.
+        	 */
             public void actionPerformed(ActionEvent e) {
                 JPanel myPanel = new ZurueckPane();
                 
@@ -152,6 +174,10 @@ class Aufgabe8GUI extends JFrame {
     }
 }
 
+/**
+ * Creates fields necessary to add a new user.
+ *
+ */
 class AddUserPane extends JPanel {
 	public AddUserPane() {
 		JPanel radioPanel = new JPanel();
@@ -179,6 +205,10 @@ class AddUserPane extends JPanel {
 	}
 }
 
+/**
+ * Creates fields necessary to add a new book.
+ *
+ */
 class AddBookPane extends JPanel {
 	public AddBookPane() {
 		String[] schlagworte = {"Sonne", "Mond", "Stern", "Raumschiff", "Alien"};	
@@ -199,6 +229,10 @@ class AddBookPane extends JPanel {
 	}
 }
 
+/**
+ * Creates fields necessary to lend/borrow a book.
+ *
+ */
 class VerleihBuchPane extends JPanel {
 	public VerleihBuchPane() {
 		this.setLayout(new GridLayout(0,2,10,10));
@@ -212,6 +246,10 @@ class VerleihBuchPane extends JPanel {
 	}
 }
 
+/**
+ * Creates fields necessary to return a book.
+ *
+ */
 class ZurueckPane extends JPanel {
 	public ZurueckPane() {
 		this.setLayout(new GridLayout(0,2,10,10));
@@ -221,6 +259,10 @@ class ZurueckPane extends JPanel {
 	}
 }
 
+/**
+ * Creates fields to specify a date.
+ *
+ */
 class DatePane extends JPanel {
 	public DatePane() {
 		this.setLayout(new GridLayout(0,3,10,0));
@@ -231,6 +273,10 @@ class DatePane extends JPanel {
 	}
 }
 
+/**
+ * Creates fields to specify an address.
+ *
+ */
 class AddressPane extends JPanel {
 	public AddressPane() {
 		this.setLayout(new GridBagLayout());	
@@ -254,6 +300,10 @@ class AddressPane extends JPanel {
 	}
 }
 
+/**
+ * Creates labels for address fields.
+ *
+ */
 class AddressLabelPane extends JPanel {
 	public AddressLabelPane() {
 		this.setLayout(new GridLayout(0,1,10,0));
