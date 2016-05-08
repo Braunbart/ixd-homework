@@ -168,8 +168,8 @@ class AddUserPane extends JPanel {
                 this.add(new JTextField());
                 this.add(new JLabel("ID:"));
                 this.add(new JFormattedTextField(NumberFormat.getNumberInstance()));
-                this.add(new JLabel("Adresse:"));
-                this.add(new JTextField());
+                this.add(new AddressLabelPane());
+                this.add(new AddressPane());
                 this.add(new JLabel("Geburtsdatum (TT MM JJJJ):"));
                 this.add(new DatePane());
                 this.add(new JLabel("Aufnahmedatum (TT MM JJJJ):"));
@@ -230,3 +230,35 @@ class DatePane extends JPanel {
 		this.add(new JTextField(4));
 	}
 }
+
+class AddressPane extends JPanel {
+	public AddressPane() {
+		this.setLayout(new GridBagLayout());	
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.insets = new Insets(0, 0, 0, 2);
+		this.add(new JTextField(10), c);
+		
+		c.gridx = 1;
+		this.add(new JTextField(5),c);
+		
+		c.gridx = 0;
+		c.gridy = 1;
+		this.add(new JTextField(10), c);
+		
+		c.gridx = 1;
+		this.add(new JTextField(5), c);		
+	}
+}
+
+class AddressLabelPane extends JPanel {
+	public AddressLabelPane() {
+		this.setLayout(new GridLayout(0,1,10,0));
+		this.add(new JLabel("Straße, Hausnummer:"));
+		this.add(new JLabel("Ort, PLZ:"));		
+	}
+}
+
