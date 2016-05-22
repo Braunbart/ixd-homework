@@ -41,14 +41,12 @@ class Model extends Observable {
     
     public void setCelsius(int celsius) {
         this.celsius = celsius;
-        setChanged();
-        notifyObservers();
+        convert2fahrenheit();
     }
     
     public void setFahrenheit(int fahrenheit) {
         this.fahrenheit = fahrenheit;
-        setChanged();
-        notifyObservers();
+        convert2celsius();
     }
     
     public void convert2celsius() {
@@ -112,7 +110,7 @@ class View implements Observer {
         frame.setContentPane(content);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(740, 210);
+        frame.setSize(740, 260);
         frame.setVisible(true);
         
         addControllers();
@@ -135,7 +133,7 @@ class View implements Observer {
                 } catch (NumberFormatException ex) {
                     model.setFahrenheit(0);
                 }
-                model.convert2celsius();
+                
             }
         });
         
@@ -146,21 +144,21 @@ class View implements Observer {
                 } catch (NumberFormatException ex) {
                     model.setCelsius(0);
                 }
-                model.convert2fahrenheit();
+                
             }
         });
         
 		cSlider.addChangeListener(new SliderController() {
             public void stateChanged(ChangeEvent e) {
                 model.setCelsius((int)cSlider.getValue());
-                model.convert2fahrenheit();
+                
             }
         });
         
 		fSlider.addChangeListener(new SliderController() {
             public void stateChanged(ChangeEvent e) {
                 model.setFahrenheit((int)fSlider.getValue());
-                model.convert2celsius();
+                
             }
         });
 	}
