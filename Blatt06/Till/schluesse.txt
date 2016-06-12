@@ -1,0 +1,9 @@
+- Für beide Personas ist es wichtig unnötige Arbeitsschritte zu vermeiden, also sollten alle Aufgaben mit möglichst wenig Handlungen abzuschließen sein.
+
+- Ausleihen und Zurücknehmen sollte mit den RFID-Chips so schnell wie im Supermarkt an der Kasse sein. So muss nur eine Handlung durchgeführt werden (scannen der Chips).
+
+- Für andere Aufgabenbereiche der Anwendung könnte eine KLM-Goms Analyse durchgeführt werden, um die Anzahl der Schritte zu minimieren.
+
+- Das Stöbern im Bestand ist für beide Personas ebenfalls ein großer Aspekt, vielleicht kann hierfür eine passende Funktionalität eingebaut werden.
+
+- Beide Personas wollen auch bestimmte Bücher finden, eine gute Suche ist daher unabdingbar.

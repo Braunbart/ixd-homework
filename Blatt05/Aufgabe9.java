@@ -151,14 +151,12 @@ class View implements Observer {
 		cSlider.addChangeListener(new SliderController() {
             public void stateChanged(ChangeEvent e) {
                 model.setCelsius((int)cSlider.getValue());
-                
             }
         });
         
 		fSlider.addChangeListener(new SliderController() {
             public void stateChanged(ChangeEvent e) {
                 model.setFahrenheit((int)fSlider.getValue());
-                
             }
         });
 	}
